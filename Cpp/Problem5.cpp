@@ -9,6 +9,16 @@ cout<<i<<endl;
   }
 }
 
+void NaturalNumbersSum(int n) {
+  int sum = 0;
+  for(int i = 0;i<=n;i++){
+
+sum+=i;
+  }
+  cout<<sum;
+}
+
 int main(){
-  NaturalNumbers(10);
+  // NaturalNumbers(10);
+  // NaturalNumbersSum(10);
 }
