@@ -43,7 +43,7 @@ for(int i = 2;i*i<=n;i++){
 //   }
 // }
 
-void PrimeNumber(int n){
+bool PrimeNumber(int n){
   int count =0;
   for(int i = 1;i*i<=n;i++){
     if(n%i==0){
@@ -53,22 +53,48 @@ void PrimeNumber(int n){
       }
     }
   }
-  count==2?cout<<"PM":cout<<"NPM";
+
+  return (count==2)?true :false;
 }
 
 // void AllNum(int start , int end ){
+// int previousPrime = -1;
 //   for(int i = start;i<=end;i++){
 //     if(PrimeNumber(i)){
-//       cout<<"pn"<<endl;
+//       if(previousPrime!=-1)
 //       cout<<i;
 //     }
+//     previousPrime=i;
 //   }
 // }
+
+void PrimePrev(int n){
+  int PrevPrime = -1;
+  int count =0;
+  for(int i =1;i<n;i++){
+    if(n%i==0){
+      count++;
+      if((n/i)!=i){
+          count++;
+      }
+      }
+    if(count ==2){
+
+   if(PrevPrime!=-1){
+      cout<<i;
+    } 
+PrevPrime = i;
+    }
+  }
+}
 
 int main(){
   // naturalnumbers(10);
   // naturalnumberssum(10);
     // perfectnumber(28);
   // AllNum(6,500);
-  PrimeNumber(9);
+  // PrimeNumber(9);
+  // AllNum(2,10);
+PrimePrev(5);
+
 }
