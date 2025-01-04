@@ -67,25 +67,48 @@ bool PrimeNumber(int n){
 //     previousPrime=i;
 //   }
 // }
-
-void PrimePrev(int n){
-  int PrevPrime = -1;
-  int count =0;
-  for(int i =1;i<n;i++){
+bool Prime(int n){
+  // if(n<1) return ;
+  for(int i =2;i*i<=n;i++){
     if(n%i==0){
-      count++;
-      if((n/i)!=i){
-          count++;
-      }
-      }
-    if(count ==2){
-
-   if(PrevPrime!=-1){
-      cout<<i;
-    } 
-PrevPrime = i;
+      return false;
     }
   }
+  return true;
+}
+void Run(int n){
+  for(int i = n-1;i>=2;i--){
+    if(Prime(i)){
+      cout<<i;
+      return;
+    }
+  }
+}
+
+
+int Gcd(int a , int b){
+  while(a > 0 && b>0){
+    if(a>b){
+      a%=b;
+    }else{
+      b%=a;
+    }
+
+  }
+return (a==0)? b : a;
+
+}
+
+
+float SumOfDigits(float n ){
+float sum = 0;
+  while(n>0){
+
+    float digit = n%10;
+    n = n/10;
+    sum = sum + digit;
+  }
+  return (float)sum;
 }
 
 int main(){
@@ -95,6 +118,10 @@ int main(){
   // AllNum(6,500);
   // PrimeNumber(9);
   // AllNum(2,10);
-PrimePrev(5);
+// PrimePrev(5);
+  // Run(10);
+// int result =Gcd(10,5);
 
+float result = SumOfDigits(123);
+cout<<result;
 }
