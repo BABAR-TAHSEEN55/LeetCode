@@ -100,15 +100,34 @@ return (a==0)? b : a;
 }
 
 
-float SumOfDigits(float n ){
-float sum = 0;
-  while(n>0){
 
-    float digit = n%10;
-    n = n/10;
-    sum = sum + digit;
+// float sum = 0;
+//   while(n>0){
+//
+//     float digit = n%10;
+//     n = n/10;
+//     sum = sum + digit;
+//   }
+//   return (float)sum;
+// }
+//
+
+
+ void SquarePattern(int n){
+  for(int i =0;i<=n;i++){
+    for(int j = 0;j<n;j++){
+      cout<<i;
+    }
+    cout<<endl;
   }
-  return (float)sum;
+}
+int Cube(int n){
+  return n*n*n;
+}
+void PrintCube(int start , int end){
+  for(int i =start ;i<=end;i++){
+    cout<<Cube(i)<<endl;
+  }
 }
 
 int main(){
@@ -121,7 +140,8 @@ int main(){
 // PrimePrev(5);
   // Run(10);
 // int result =Gcd(10,5);
-
-float result = SumOfDigits(123);
-cout<<result;
+// SquarePattern(5);
+PrintCube(1,5);
+// float result = SumOfDigits(123);
+// cout<<result;
 }
