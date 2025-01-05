@@ -78,12 +78,29 @@ const SumofDigits = (n: number): number => {
   }
   return sum;
 };
+const StarPattern = (n: number) => {
+  for (let i = 0; i <= n; i++) {
+    for (let j = i; j < n; j++) {
+      process.stdout.write("*");
+    }
+    console.log(" ");
+  }
+};
+const Cube = (n: number) => {
+  return n * n * n;
+};
+const PrintCube = (start: number, end: number) => {
+  for (let i = start; i <= end; i++) {
+    console.log(Cube(i));
+  }
+};
 // console.log(4 / 2);
 // NaturalNumberSum(10);
 // AllNum(6, 500);
-//
+PrintCube(1, 5);
 // PrimeNumber(9);
 // RunAll(2, 19);
 // PrevPrime(10);
 // console.log(Gcd(50, 100));
-console.log(SumofDigits(123));
+// console.log(SumofDigits(123));
+StarPattern(5);
