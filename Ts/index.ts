@@ -94,6 +94,14 @@ const PrintCube = (start: number, end: number) => {
     console.log(Cube(i));
   }
 };
+const StarPattern2 = (n: number) => {
+  for (let i = 0; i <= n; i++) {
+    for (let j = 0; j <= i; j++) {
+      process.stdout.write(j.toString());
+    }
+    console.log(" ");
+  }
+};
 // console.log(4 / 2);
 // NaturalNumberSum(10);
 // AllNum(6, 500);
@@ -103,4 +111,5 @@ PrintCube(1, 5);
 // PrevPrime(10);
 // console.log(Gcd(50, 100));
 // console.log(SumofDigits(123));
-StarPattern(5);
+// StarPattern(5);
+StarPattern2(5);
