@@ -130,6 +130,24 @@ void PrintCube(int start , int end){
   }
 }
 
+void StartPattern2(int n){
+  for(int i =0;i<=n;i++){
+    for(int j = 0;j<=i;j++){
+      cout<<"*";
+    }
+    cout<<endl;
+  }
+}
+
+void NumberPatern(int n){
+  for(int i =0;i<=n;i++){
+    for(int j = 0;j<=i;j++){
+      cout<<j;
+    }
+    cout<<endl;
+  }
+}
+
 int main(){
   // naturalnumbers(10);
   // naturalnumberssum(10);
@@ -141,7 +159,9 @@ int main(){
   // Run(10);
 // int result =Gcd(10,5);
 // SquarePattern(5);
-PrintCube(1,5);
+// PrintCube(1,5);
 // float result = SumOfDigits(123);
 // cout<<result;
+  // StartPattern2(5)
+  NumberPatern(5);
 }
