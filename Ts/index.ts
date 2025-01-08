@@ -102,6 +102,38 @@ const StarPattern2 = (n: number) => {
     console.log(" ");
   }
 };
+
+const PyramidPatter = (n: number) => {
+  for (let i = 0; i <= n; i++) {
+    for (let j = 0; j < n - i - 1; j++) {
+      process.stdout.write(" ");
+    }
+
+    for (let j = 0; j < 2 * i + 1; j++) {
+      process.stdout.write("*");
+    }
+
+    for (let j = 0; j < n - i - 1; j++) {
+      process.stdout.write(" ");
+    }
+    console.log(" ");
+  }
+};
+const ReversePatter = (n: number) => {
+  for (let i = 0; i <= n; i++) {
+    for (let j = 0; j < i; j++) {
+      process.stdout.write(" ");
+    }
+    for (let j = 0; j < 2 * n - 2 * i - 1; j++) {
+      process.stdout.write("*");
+    }
+
+    for (let j = 0; j < i; j++) {
+      process.stdout.write(" ");
+    }
+    console.log(" ");
+  }
+};
 // console.log(4 / 2);
 // NaturalNumberSum(10);
 // AllNum(6, 500);
@@ -112,4 +144,6 @@ PrintCube(1, 5);
 // console.log(Gcd(50, 100));
 // console.log(SumofDigits(123));
 // StarPattern(5);
-StarPattern2(5);
+// StarPattern2(5);
+// PyramidPatter(4);
+ReversePatter(5);
