@@ -33,8 +33,23 @@ void ReversePatter(int n){
   cout<<endl;
   }
 }
+void FullPattern(int  n ){
+  for(int i = 0;i<n;i++){
+    for(int j = 0;j<=i;j++){
+      cout<<"*";
+    }
+    cout<<endl;
+  }
 
+  for(int i = 0;i<n;i++){
+    for(int j = 0;j<n-i-1;j++){
+      cout<<"*";
+    }
+    cout<<endl;
+  }
+}
 int main(){
   // PyramidPattern(5);
-    ReversePatter(5);
+    // ReversePatter(5);
+  FullPattern(5);
 }
