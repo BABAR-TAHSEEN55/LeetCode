@@ -134,6 +134,21 @@ const ReversePatter = (n: number) => {
     console.log(" ");
   }
 };
+const FullPattern = (n: number) => {
+  for (let i = 0; i <= n; i++) {
+    for (let j = 0; j < i; j++) {
+      process.stdout.write("*");
+    }
+    console.log(" ");
+  }
+
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n - i - 1; j++) {
+      process.stdout.write("*");
+    }
+    console.log(" ");
+  }
+};
 // console.log(4 / 2);
 // NaturalNumberSum(10);
 // AllNum(6, 500);
@@ -146,4 +161,5 @@ PrintCube(1, 5);
 // StarPattern(5);
 // StarPattern2(5);
 // PyramidPatter(4);
-ReversePatter(5);
+// ReversePatter(5);
+FullPattern(5);
