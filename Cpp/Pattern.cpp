@@ -48,8 +48,20 @@ void FullPattern(int  n ){
     cout<<endl;
   }
 }
+
+void TogglePattern(int n ){
+  for(int i  = 0;i<n;i++){
+    int start =(i%2==0)?1:0;
+    for(int j = 0;j<=i;j++){
+      cout<<start;
+      start = 1-start;
+    }
+    cout<<endl;
+  }
+}
 int main(){
   // PyramidPattern(5);
     // ReversePatter(5);
   FullPattern(5);
+TogglePattern(5);
 }
