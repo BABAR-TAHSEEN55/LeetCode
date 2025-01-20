@@ -149,6 +149,24 @@ const FullPattern = (n: number) => {
     console.log(" ");
   }
 };
+const CrazyPattern = (n: number) => {
+  let spaces = 2 * n - 2;
+  for (let i = 1; i <= n; i++) {
+    for (let j = 1; j <= i; j++) {
+      process.stdout.write(j.toString());
+    }
+
+    for (let j = 1; j <= spaces; j++) {
+      process.stdout.write(" ");
+    }
+
+    for (let j = i; j >= 1; j--) {
+      process.stdout.write(j.toString());
+    }
+    spaces -= 2;
+    console.log(" ");
+  }
+};
 // console.log(4 / 2);
 // NaturalNumberSum(10);
 // AllNum(6, 500);
@@ -162,4 +180,5 @@ PrintCube(1, 5);
 // StarPattern2(5);
 // PyramidPatter(4);
 // ReversePatter(5);
-FullPattern(5);
+// FullPattern(5);
+CrazyPattern(5);

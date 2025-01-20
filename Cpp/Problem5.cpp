@@ -147,7 +147,24 @@ void NumberPatern(int n){
     cout<<endl;
   }
 }
+void CrazyPattern(int n){
 
+int spaces = 2*(n-1);
+for(int i =1;i<=n;i++){
+    for(int j = 1;j<=i;j++){
+      cout<<j;
+    }
+for(int j=1;j<=spaces;j++){
+      cout<<" ";
+    }
+    for(int j =i;j>=1;j--){
+      cout<<j;
+    }
+
+    spaces-=2;
+    cout<<endl;
+  }
+}
 int main(){
   // naturalnumbers(10);
   // naturalnumberssum(10);
@@ -163,5 +180,6 @@ int main(){
 // float result = SumOfDigits(123);
 // cout<<result;
   // StartPattern2(5)
-  NumberPatern(5);
+  // NumberPatern(5);
+  CrazyPattern(5);
 }
