@@ -165,6 +165,49 @@ for(int j=1;j<=spaces;j++){
     cout<<endl;
   }
 }
+
+void CrazyPattern1(int n){
+  int increment =1;
+  for(int i =1;i<=n;i++){
+    for(int j = 1;j<=i;j++){
+cout<<increment;
+      increment = increment + 1;
+      cout<<" ";
+    }
+    for(int j=1;j<=n;j++){
+      cout<< " ";
+    }
+    cout<<endl;
+  }
+}
+
+// void Alphabets(int n){
+//   for(char i =65;i<=n;i++ ){
+//   for(char c = 65;c<=i;c++){
+//       cout<<i;
+//       cout<<" ";
+//   }
+//     for(char c =n;c>=65;c--){
+//       cout<<" ";
+//     }
+//     cout<<endl;
+//   }
+//  }
+
+void Alphabets(int n){
+  for(int i = 0;i<=n;i++){
+    for(char c = 'A';c<='A'+i;c++){
+      cout<<c;
+      cout<<" ";
+    }
+    for(int j = 1;j<=n;j++){
+      cout<<" ";
+    }
+    cout<<endl; 
+  }
+ }
+
+
 int main(){
   // naturalnumbers(10);
   // naturalnumberssum(10);
@@ -181,5 +224,8 @@ int main(){
 // cout<<result;
   // StartPattern2(5)
   // NumberPatern(5);
-  CrazyPattern(5);
+  // CrazyPattern1(5);
+  // CrazyPattern1(71);
+  Alphabets(5);
+  
 }
