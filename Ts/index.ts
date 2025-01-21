@@ -167,10 +167,29 @@ const CrazyPattern = (n: number) => {
     console.log(" ");
   }
 };
+const CrazyPattern1 = (n: number) => {
+  let increment = 1;
+  for (let i = 1; i <= n; i++) {
+    for (let j = 1; j <= i; j++) {
+      process.stdout.write(increment.toString());
+      increment++;
+      process.stdout.write(" ");
+    }
+    for (let j = 1; j <= n; j++) {
+      process.stdout.write(" ");
+    }
+    console.log(" ");
+  }
+};
+// const Alphabets = (n  : number)=>{
+//   for(let i  = 0;i<=n;i++){
+//     for()
+//   }
+// }
 // console.log(4 / 2);
 // NaturalNumberSum(10);
 // AllNum(6, 500);
-PrintCube(1, 5);
+// PrintCube(1, 5);
 // PrimeNumber(9);
 // RunAll(2, 19);
 // PrevPrime(10);
@@ -181,4 +200,7 @@ PrintCube(1, 5);
 // PyramidPatter(4);
 // ReversePatter(5);
 // FullPattern(5);
-CrazyPattern(5);
+// CrazyPattern1(5);
+let a = "A";
+a = a + 1;
+console.log(a);
