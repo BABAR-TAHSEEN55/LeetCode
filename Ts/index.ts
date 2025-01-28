@@ -186,6 +186,15 @@ const CrazyPattern1 = (n: number) => {
 //     for()
 //   }
 // }
+//
+const Alphabet = (n: number) => {
+  for (let i = 1; i <= n; i++) {
+    for (let c = "A"; c <= "B"; c++) {
+      process.stdout.write(c);
+    }
+    console.log(" ");
+  }
+};
 // console.log(4 / 2);
 // NaturalNumberSum(10);
 // AllNum(6, 500);
@@ -201,6 +210,7 @@ const CrazyPattern1 = (n: number) => {
 // ReversePatter(5);
 // FullPattern(5);
 // CrazyPattern1(5);
-let a = "A";
-a = a + 1;
-console.log(a);
+
+// a = a + 1;
+// console.log(a);
+Alphabet(5);
