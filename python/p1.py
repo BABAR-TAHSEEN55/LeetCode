@@ -22,3 +22,5 @@ deduction = input("Enter your deduction")
 tip = input("Enter your tip")
 e1 = Employee( name,basicAllowance,deduction,tip)
 e1.displayInfo()
+
+# Remember : num2str is built in Matlab
