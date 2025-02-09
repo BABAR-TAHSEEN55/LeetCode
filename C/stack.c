@@ -2,9 +2,10 @@
 #define N 5
 int stacks[N];
 int top = -1;
-void push(int x){
+void push(char x){
 if(top==N-1){
-    // printf("OverFlow Condition");
+    printf("OverFlow Condition");
+    return ;
   }
   top++;
   stacks[top] = x;
@@ -12,27 +13,29 @@ if(top==N-1){
 void Peek(){
   if(top==-1){
     printf("UnderFlow Condition");
+    return;
   }
-  // printf("Top Element : %d" , stacks[top]);
+  printf("Top Element : %c" , stacks[top]);
 }
-void Pop(int item){
+void Pop(){
   if(top==-1){
     // printf("Stack is Empty");
   }
-  item = stacks[top];
+  char item = stacks[top];
   top--;
   // printf("Popped Element : %d", item );
 }
 void Display(){
-  while(top!=-1){
-    printf("Elements in the Stacks are   : %d\n", stacks[top]);
-    top--;
+  for(int i =top;i>=0;i--){
+    printf("Elements in the Stacks : %c\n", stacks[i]);
   }
 }
 int main(){
-  push(5);
-  push(3);
-  push(8);
+  push('A');
+  push('B');
+  push('C');
+  // Display();
+  push('S');
   Display();
   Peek();
 }

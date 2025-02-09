@@ -5,17 +5,21 @@ int front =-1;
 int rear =-1;
 
 void Enqueue(int x){
-  if((front && rear)==N-1){
+  if(rear ==-1){
     printf("Queue is Full");
+    return;
   }
-  front++;
+  if(front ==-1){
+    front = 0;
+  }
   rear++;
-  queue[front]=x;
+  queue[rear]=x;
 }
 void Dequeue(int x){
   int temp;
-  if(rear==-1){
+  if(front==-1){
     printf("Queue is Empty");
+    return;
   }
   temp = queue[rear];
   printf("Dequeue element : %d",temp);
