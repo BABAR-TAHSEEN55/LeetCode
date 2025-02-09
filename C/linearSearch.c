@@ -10,6 +10,8 @@ void LinearSearch(int n , int arr[]){
       break;
     }
   }
+
+    printf("Element Not FOund ");
 }
 int main(){
   int arr[]= {1,2,3,4,5};
