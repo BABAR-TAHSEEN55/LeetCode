@@ -376,3 +376,100 @@ public class Main{
 
   }
 }
+
+import java.util.*;
+interface SharedConstants{
+  int NO = 0;
+  int YES= 1;
+  int MAYBE = 2;
+  int LATER= 3;
+int SOON =4;
+int NEVER = 5;
+}
+class Question implements SharedConstants{
+  Random rand = new Random();
+  public int Ask(){
+    int prob = (int)(100*rand.nextDouble());
+    if(prob<30){
+      return NO;
+    }else if(prob <60){
+      return YES;
+    }else{
+      return -1;
+    }
+  }
+}
+class Answers implements SharedConstants{
+  static void answer(int Result){
+    switch (Result) {
+      case NO:
+        System.out.println("NO");
+        break;
+      default:
+        break;
+    }
+  }
+}
+class Main{
+  public static void main(String args[]){
+    Question Q = new Question();
+    Answers a = new Answers();
+int result = Q.Ask();
+Answers.Answers(result);
+  }
+}
+class StackDemo{
+  static void ShowPush(Stack<Integer>st , int a){
+    st.push(a);
+    System.out.println("Pushed Element : " + a);
+    System.out.println("Stack : ") + st;
+  }
+
+  static void ShowPop(Stack<Integer>st ){
+    int integer = st.pop();
+    System.out.println("Popped  Element : " + integer);
+    System.out.println("Stack : ") + st;
+  }
+  public static void main(String args[]) {
+    
+Stack<Integer> st = new Stack<Integer>();
+ShowPush(st,40);
+
+ShowPush(st,43);
+ShowPush(st,99);
+ShowPush(st,87);
+ShowPush(st,22);
+ShowPop(st);
+}
+}
+
+import java.util.*;
+
+class Main {
+  public static void main(String args[]) {
+    ArrayList<String> al = new ArrayList<String>();
+    al.add("D");
+    al.add("A");
+    al.add("B");
+    al.add("C");
+
+    // Using Iterator
+    Iterator<String> itr = al.iterator();
+    while (itr.hasNext()) {
+      String element = itr.next();
+      System.out.println("Element: " + element);
+    }
+
+    System.out.println();
+
+    // Using ListIterator for modification
+    ListIterator<String> ltr = al.listIterator();
+    while (ltr.hasNext()) {
+      String element = ltr.next();
+      ltr.set(element + "-");  // Modify the element
+      System.out.println("Modified Element: " + (element + "+"));
+    }
+
+    System.out.println("\nFinal ArrayList: " + al);
+  }
+}
