@@ -1,51 +1,52 @@
 #include<stdio.h>
 #include<stdlib.h>
-#define N 10
+#define N 100
 struct Queue {
   int data;
   struct Queue *link;
 };
-struct Queue *rear = 0;
-  struct Queue *front  = 0;
+  struct Queue *rear = NULL;
+struct Queue *front = NULL;
 
-void Enqueue(int x){
-struct Queue *newnode;
-  newnode = (struct Queue *)(malloc(sizeof(struct Queue)));
-  newnode->data = x;
-newnode->link = 0;
-  if(front==0 && rear ==0){
-    front = rear = newnode;
+void Push(int x){
+  struct Queue *newnode= (struct Queue *)(malloc(sizeof(struct Queue)));
+  if(newnode==NULL){
+    printf("Memory Allocation Failed\n");
+    return ;
   }
-  rear->link = newnode;
+  newnode->data =x;
+
+  if(front ==NULL){
+    front =rear =  newnode;
+  }else{
+  newnode->link = rear;
   rear = newnode;
+  }
 }
-
 void Peek(){
-  struct Queue *temp  = (struct Queue*)(malloc(sizeof(struct Queue)));
-  temp = front;
-  while (temp!=0) {
-    printf("Elements in the Queue are : %d\n", temp->data);
-    temp = temp->link;
+  if(front ==NULL){
+    printf("Queue is Empty\n");
+    return;
   }
-}
-void Pop(){
   struct Queue *temp;
-temp = front;
-  if(front ==0 ){
-    printf("Empty Queue");
-    rear = 0;
+  temp = front;
+  printf("Top Element in the Queue : %d",front->data);
+}
+void Dequeue(){
+  if(front ==NULL){
+    printf("Queue is empthy\n");
+    return;
   }
-  printf("Popped Element  : %d\n", front->data);
-  front= front->link;
+  struct Queue *temp;
+  temp = front;
+  printf("Dequeed Element : %d\n",front->data);
+front = front->link;
   free(temp);
 
 }
 
 int main(){
-  Enqueue(5);
-  Enqueue(6);
-  Enqueue(59);
-  Pop();
+  Push(5);
+  Push(9);
   Peek();
 }
-//TODO : Except Insertion everything takes place through front
