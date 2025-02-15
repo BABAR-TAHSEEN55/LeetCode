@@ -473,3 +473,18 @@ class Main {
     System.out.println("\nFinal ArrayList: " + al);
   }
 }
+import java.io.*;
+class Main{
+  public static void main(String args[])throws IOException{
+    if(args.length<2){
+      System.out.println("Please Provide a Valid File");
+      return;
+    }
+      String InputFile = args[0];
+      String OutputFile = args[1];
+    FileInputSteam InputReader = new FileInputSteam (InputFile);
+    FileOutputSteam OutputReader = new FileOutputSteam(OutputFile);
+    int FileSize = new File(InputFile).length();
+    byte[] allbytes = new byte(FileSize);
+    InputReader.read(allbytes);
+    OutputReader.write(allbytes)
