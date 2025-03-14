@@ -23,7 +23,7 @@ void Dequeue(int x){
   }
   temp = queue[rear];
   printf("Dequeue element : %d",temp);
-  rear--;
+  front--;
 }
 void Peek(){
   if(rear==-1){

@@ -6,7 +6,7 @@ struct Stack {
     struct Stack *link;
 };
 
-struct Stack *top = -1;
+struct Stack *top = NULL;
 
 void Push(int x) {
     struct Stack *newnode;
