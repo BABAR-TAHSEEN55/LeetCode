@@ -698,3 +698,51 @@ System.out.println("Exception ahs been cuagh");
     System.out.println("ClassNotFoundException has been caufdht");
   }
 }
+// Classes Implementin MapInterface : HashMap , HashTable , TreeMap (Stores element in an unodered way . Not Synchornized (Faster ) Allow null key value pairs) and soo onn..
+public class DemoMap{
+  public static void main(String args[]){
+    Map<Integer,String> hashMap = new HashMap<>();
+    hashMap(1,"Apple");
+    hashMap(2,"Orange")
+      hashMap(null , "Null Value");
+  }
+  System.out.println("HashMap : " + hashMap);
+  Map<Integer , String> hashTable = new HashTable<>();
+  hashTable(1,"YOLOO")
+  hashTable(2,"Soloor");
+  hashTable(3,"Leveelinnng");
+  System.out.println(hashTable);
+}
+import java.util.*;
+public class SetExample {
+  public static void main(String args[]){
+Set<String> hs = new HashSet<>();
+hs.add("Banana");
+hs.add("Apple");
+hs.add("Cheerry");
+System.out.println("Hashset includes : " + hs);
+Set<String> ts = new TreeSet<>();
+ts.add("Banana");
+ts.add("Apple");
+ts.add("Cherry");
+System.out.println("Tree is Sorted ");
+System.out.println("treeset Includes  : " + ts);
+  }
+}
+// List Iterator 
+public class DemoIterator{
+  public static void main(String args[]){
+    ArrayList<String> al = new ArrayList<>();
+    al.add("A");
+    al.add("B");
+    al.add("CX");
+    al.size();
+    al.remove("A");
+    System.out.println("Al" + al);
+    Iterator<String> itr = al.iterator();
+    while(itr.hasNext()){
+      String element= itr.hasNext();
+      System.out.println(("Print"));
+    }
+  }
+}
