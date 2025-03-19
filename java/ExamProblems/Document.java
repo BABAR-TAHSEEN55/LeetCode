@@ -40,8 +40,8 @@ public class TestGarbage {
   }
   public static void main(String args[]){
     TestGarbage t1 = new TestGarbage();
-    TestGarbage t2 = new TestGarbage();
     t1=t2;
+    TestGarbage t2 = new TestGarbage();
     System.gc();
 
   }
@@ -366,6 +366,7 @@ static int Fibonacci(int n){
   if(n==1) return 1;
   return Fibonnaci(n-1) + Finalize(n-2);
 }
+// In Stacks , Remember they are Abstract Classes
 // Stack Demo
 public class StackDemo{
 static void ShowPush(Stack<Intger> st , int n){
@@ -426,4 +427,274 @@ public static void main(String args[]){
   ArrayList<Integer> al= new ArrayList<Integer>;
 
 }
+}
+
+// User Defined Exceptions
+class InsufficientBankBalance extends Exception{
+  InsufficientBankBalance(String msg){
+    super(msg);
+  }
+}
+public class BankAccount{
+  private double balance;
+  BankAccount(double balance ){
+    this.balance = balance;
+  }
+  public void Withdraw (double amount) throws InsufficientBankBalance{
+    if(amount > balance){
+      throw new InsufficientBankBalance("You have InsufficientBankBalance in your Bank account ! Brookie LOL")
+    }else{
+      balance-=amount;
+      System.out.println("Transaction has been Successfull");
+    }
+  }
+}
+public class Test {
+  public static void main(String args[]){
+    BankAccount bb = new BankAccount(6000);
+    try{
+
+    }catch(InsufficientBankBalance e){
+      System.out.println("Excetption Caught : " + e.getMessage());
+    }
+    bb.Withdraw(7000);
+  }
+}
+
+class Queue{
+  private int item;
+  private boolean available = false;
+  public synchronized int consume (){
+    while(!available){
+      try{
+        wait();
+      }catch(InterruptedException e){
+e.printStack();
+      }
+    }
+
+      available = false;
+      notify();
+      System.out.println("Conumed : "  + item);
+      return item;
+  }
+  public synchronized int produce(int newItem){
+    while(available){
+      try{
+        wait();
+      }catch(InterruptedException e){
+        e.printStack();
+      }
+    }
+
+      this.item = newItem;
+      available = true;
+      notify();
+      System.out.println("Produced : " + item);
+  }
+}
+public class Producer extends Thread{
+  private Queue queue;
+  Producer(Queue queue){
+    this.queue =queue;
+  }
+
+
+  public void run(){
+    for(int i = 0;i<5;i++){
+      try{
+
+queue.produce[i];
+Thread.sleep(500)
+
+      }
+
+  }catch(InterruptedException e){
+    e.printStack();
+  }
+  }
+}
+
+public class Consumer extends Thread{
+  private Queue queue;
+  Consumer(Queue queue){
+    this.queue = queue;
+  }
+
+  public void run(){
+    try{
+
+    for(int i = 0;i<=5;i++){
+ queue.consume[i];
+ Thread.sleep(500);
+    }catch(InterruptedException e){
+      e.printStack();
+    }
+    }
+  }
+}
+public class  Main{
+  public static void main(String args[]){
+    Producer producer = new Producer(queue);
+    Consumer consume = new Consumer(queue);
+    producer.start();
+    consume.start();
+    try{
+      producer.join();
+      consume.join();
+    }catch(InterruptedException e){
+      e.printStack();
+    }
+  }
+}
+// Thread isJoin && IsAlive  
+class MyThread extends Thread{
+  try{
+    System.out.println(Thread.currentThread().getName() + "Is Running ....");
+    Thread.sleep(500);
+    System.out.println(Thread.currentThread().getName() + "Is Running ....");
+  }catch(InterruptedException e){
+    System.out.println(Thread.currentThread().getName() + "Has been Interruted");
+  }
+}
+class DemoThread{
+  public static void main(String args[]){
+    MyThread t1 = new MyThread();
+    MyThread t2 = new MyThread();
+    System.out.println("Starting Threads ... ");
+    t1.start() ;
+    t2.start();
+
+      System.out.println("Is Thread t1 Allivve ? "  + t1.isAlive());
+      System.out.println("Is Thread t1 Allivve ? "  + t2.isAlive());
+    try{
+      t1.join();
+      t2.join();
+
+    }catch(InterruptedException e){
+      System.out.println("Thread has been Interrupted");
+    }
+System.out.println("Is Alive3 ? " + t1.isAlive());
+  }
+}
+
+// Two ways of Implementing Thread : 
+class MyThread implements Runnable {
+public void run(){
+  for(int i =0;i<=5;i++){
+    System.out.println("Thread  " + i + " is Reunning ");
+  }
+  try{
+    Threads.sleep(5000);
+  }catch(InterruptedException e){
+    System.out.println("Thread has been Interrupted");
+  }
+}
+}
+public class ThreadDemo{
+  public static void main(String args[]){
+    MyThread r2 = new MyThread();
+    Thread t1 = new Thread(r2)
+      t1.start();
+   }
+}
+class MyThread extends Thread {
+  public void run(){
+
+  for(int i =0;i<=5;i++){
+    System.out.println("Thread  " + i + " is Reunning ");
+  }
+  try{
+    Thread.sleep(5000);
+  }catch(InterruptedException e){
+    System.out.println("Interuupted");
+  }
+  }
+}
+public class ThreadSemo{
+  public static void main(String args[]){
+    MyThread t1 = new Thread();
+    t1.start();
+  }
+}
+
+// Serialization and De-Serialization
+import java.io.*;
+public class Demo implements java.io.Serializable{
+  public int a ;
+  public String name;
+  Demo(int a , String name){
+    this.a = a;
+    this.name= name;
+  }
+}
+public class Test{
+  public static  void main(String args[]){
+    Demo dd = new Demo(14 , "CSE-A");
+    try{
+      String filname = "Some.txt";
+      FileOutputStream file = new FileOutputStream(filename)
+        ObjectOutputStream out = new ObjectOutputStream(file);
+      out.writeObject(object);
+      out.close();
+      file.close();
+      System.out.println("Object has been Serialized");
+    }catch(IOException ex){
+      System.out.println("IOException is caught");
+    }
+    Demo object1 = null;
+    try{
+      FileInputStream file = new FileInputStream(filename);
+      ObjectInputStream  = new ObjectInputStream(file);
+       object = (Demo)in.readObject();
+       in.close();
+       file.close();
+       System.out.println("Object has been Deserialzed..");
+ System.out.println("a" + object1.a);
+ System.out.println("b" + object1.b);
+    }catch(IOException e){
+      System.out.println("Exception Caught");
+    }catch(ClassNotFoundException e){
+      System.out.println("ClassNotFoundException ");
+    }
+
+  }
+}
+// AGAIN
+public class  Serialized {
+  public int a ;
+  public String name;
+  Serialized(int a , String name){
+    this.name = name;
+    this.a = a;
+  }
+}
+public class Test{
+  public static void main(String args[]){
+    try{
+String filename ="Blaze";
+FileInputStream file  = new FileInputStream(filename);
+ObjectOutputStream  out = new ObjectOutputStream(file);
+out.writeObject(object);
+out.close();
+file.close();
+
+  }catch(IOException e){
+    System.out.println("Exception Caught");
+  }
+  Serialized object1  = null;
+  try{
+FileInputStream file = new FileInputStream(filename);
+ObjectInputStream in = new ObjectInputStream(file);
+object1= (Serialized)in.readObject();
+in.close();
+file.close();
+System.out.println("Object has been Deserialzed ... ");
+System.out.println("a " + objec1.a);
+System.out.println("B" + object1.b);
+  }catch(IOException e){
+System.out.println("Exception ahs been cuagh");
+  }catch(ClassNotFoundException e){
+    System.out.println("ClassNotFoundException has been caufdht");
+  }
 }
