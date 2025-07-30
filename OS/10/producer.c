@@ -1,30 +1,33 @@
 
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/ipc.h>
 #include <sys/sem.h>
+
 int mutex = 1, empty = 3, full = 0, x = 0;
 int main() {
   int n;
-  void Producer();
-  void Consumer();
+
   int wait();
   int signal();
-  printf("\n 1. Producer\n 2. Consumer \n 3. Exit\n");
+  void Producer();
+  void Consumer();
+  printf("1. PRoducer 2.Consumer 3 . Exitll");
   while (1) {
-    printf("Enter your Choice \n");
+
+    printf("Enter Choice : ");
     scanf("%d", &n);
     switch (n) {
     case 1:
-      if ((mutex == 1) && (empty != 0)) {
+      if ((mutex == 1 && empty != 0)) {
         Producer();
       } else {
         printf("Buffer is Full\n");
       }
       break;
+
     case 2:
-      if ((mutex == 1) && (full != 0)) {
+      if ((mutex == 1 && full != 0)) {
         Consumer();
       } else {
         printf("Buffer is Empty\n");
@@ -36,22 +39,20 @@ int main() {
   }
 }
 int wait(int s) { return (--s); }
-
 int signal(int s) { return (++s); }
 void Producer() {
   mutex = wait(mutex);
+  full = signal(full);
   empty = wait(empty);
   x++;
-  printf("Producer Produced the item : %d\n", x);
-  full = signal(full);
+  printf("Producer has Producer : %d", x);
   mutex = signal(mutex);
 }
 void Consumer() {
-
   mutex = wait(mutex);
-  empty = wait(empty);
-  printf("Consumer Consumed the item : %d\n", x);
+  empty = signal(empty);
+  full = wait(full);
+  printf("Consumer has Consumer : %d", x);
   x--;
-  full = signal(full);
   mutex = signal(mutex);
 }
