@@ -1,6 +1,5 @@
 
 #include <bits/stdc++.h>
-#include <vector>
 using namespace std;
 
 class Node {
@@ -31,6 +30,32 @@ Node *ConvertArrToLL(vector<int> &vr) {
   }
   return head;
 }
+Node *RemoveHead(Node *head) {
+  if (head == NULL) {
+    return head;
+  }
+  Node *temp = head;
+  head = head->next;
+  return head;
+}
+void print(Node *head) {
+  while (head != NULL) {
+    cout << head->data;
+    head = head->next;
+  }
+}
+Node *RemoveTail(Node *head) {
+  if (head == NULL || head->next == NULL) {
+    return head;
+  }
+  Node *temp = head;
+  while (temp->next->next != NULL) {
+    temp = temp->next;
+  }
+  delete temp->next;
+  temp->next = nullptr;
+  return head;
+}
 
 int main() {
   vector<int> arr = {2, 8, 5, 6};
@@ -39,20 +64,26 @@ int main() {
 
   Node *head = ConvertArrToLL(arr);
 
-  Node *temp = head;
-  int number;
-  cout << "Enter Number : ";
-  cin >> number;
+  // Node *temp = head;
 
-  while (temp) {
+  // head = RemoveHead(head);
+  head = RemoveTail(head);
 
-    if (number == temp->data) {
-      cout << "Found";
-      cout << temp->data;
-      return 1;
-    }
-    temp = temp->next;
-    // cout << temp->data << " ";
-  }
-  cout << "Not Found";
+  print(head);
+  // int number;
+  //
+  // cout << "Enter Number : ";
+  // cin >> number;
+  //
+  // while (temp) {
+  //
+  //   if (number == temp->data) {
+  //     cout << "Found";
+  //     cout << temp->data;
+  //     return 1;
+  //   }
+  //   temp = temp->next;
+  //   // cout << temp->data << " ";
+  // }
+  // cout << "Not Found";
 }
