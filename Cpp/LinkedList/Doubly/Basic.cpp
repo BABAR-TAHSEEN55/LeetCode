@@ -33,6 +33,7 @@ Node *Convert2Dll(vector<int> &vr) {
   return head;
 }
 void print(Node *head) {
+    cout<<head->next->next;
   while (head != NULL) {
     cout << head->data << " ";
     head = head->next;
@@ -122,6 +123,7 @@ Node *InsertBeforetail(Node *head, int val) {
 }
 Node *InsertBeforeKthElement(Node *head, int val, int elem) {
   Node *temp = head;
+  // cout<<temp->next->next;
   while (temp->next != NULL) {
     if (temp->data == val) {
       break;
@@ -147,6 +149,8 @@ int main() {
   // cin >> count;
   // head = DeleteKthElement(head, count)  head = InsertNewNode(head, 2299);
   // head = InsertBeforetail(head, 8);
-  head = InsertBeforeKthElement(head, 34, 33);
+  // head = InsertBeforeKthElement(head, 34, 33);
   print(head);
 }
+
+// TODO : Complete all this again
