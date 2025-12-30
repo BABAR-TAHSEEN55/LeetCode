@@ -1,42 +1,31 @@
 
-// TODO HAVE A LOOK
 #include <arpa/inet.h>
+#include <netinet/in.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 #include <sys/socket.h>
+#include <unistd.h>
 
 int main() {
-  struct sockaddr_in server, client;
-  int sockid, len;
-  char buffer[100];
+  int sid;
+  char buf[20];
+  struct sockaddr_in s, cli;
+  socklen_t len = sizeof(cli);
 
-  sockid = socket(AF_INET, SOCK_DGRAM, 0);
-  if (sockid == -1) {
-    perror("Socket error");
-    exit(1);
-  }
+  sid = socket(AF_INET, SOCK_DGRAM, 0);
 
-  server.sin_family = AF_INET;
-  server.sin_addr.s_addr = INADDR_ANY;
-  server.sin_port = htons(8080); // Use port 8080 (unprivileged)
+  s.sin_family = AF_INET;
+  s.sin_port = htons(9090);
+  s.sin_addr.s_addr = INADDR_ANY;
 
-  if (bind(sockid, (struct sockaddr *)&server, sizeof(server)) < 0) {
-    perror("Bind failed");
-    exit(1);
-  }
+  bind(sid, (struct sockaddr *)&s, sizeof(s));
 
-  printf("UDP Echo server running on port 8080...\n");
+  recvfrom(sid, buf, sizeof(buf), 0, (struct sockaddr *)&cli, &len);
 
-  len = sizeof(client);
-  while (1) {
-    int n = recvfrom(sockid, buffer, sizeof(buffer), 0,
-                     (struct sockaddr *)&client, &len);
-    buffer[n] = '\0';
-    printf("Received: %s\n", buffer);
-    sendto(sockid, buffer, strlen(buffer), 0, (struct sockaddr *)&client, len);
-  }
+  printf("Received: %s\n", buf);
 
-  /* close(sockid); */
+  sendto(sid, "ACK", 3, 0, (struct sockaddr *)&cli, len);
+
+  close(sid);
   return 0;
 }
