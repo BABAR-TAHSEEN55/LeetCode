@@ -34,14 +34,14 @@ int main(int argc, char *argv[]) {
   if (pid == 0) {
     while (1) {
 
-      bzero(buff1, sizeof(buff1));
+      bzero(&buff1, sizeof(buff1));
       printf("Enter Input : ");
       fgets(buff1, sizeof(buff1), stdin);
       send(sid, buff1, strlen(buff1), 0);
     }
   } else {
     while (1) {
-      bzero(buff, sizeof(buff));
+      bzero(&buff, sizeof(buff));
       int n = recv(sid, buff, sizeof(buff), 0);
       if (n <= 1) {
         printf("Client disconnected\n");

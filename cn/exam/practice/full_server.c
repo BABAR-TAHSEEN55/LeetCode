@@ -53,7 +53,7 @@ int main(int argc, char *argv[]) {
     int pid = fork();
     if (pid == 0) {
       while (1) {
-        bzero(buff, sizeof(buff));
+        bzero(&buff, sizeof(buff));
         int n = recv(a, buff, sizeof(buff), 0);
         if (n <= 1) {
           printf("Client disconnected\n");
