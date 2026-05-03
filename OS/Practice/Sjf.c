@@ -25,11 +25,14 @@ int main() {
 
   // Sortin AT , BT, P
   for (i = 0; i < n - 1; i++) {
+
     for (j = 0; j < n - i - 1; j++) {
       if (BT[j] > BT[j + 1]) {
+        // TEMP SWAP
         T = BT[j];
         BT[j] = BT[j + 1];
         BT[j + 1] = T;
+
         T = AT[j];
         AT[j] = AT[j + 1];
         AT[j + 1] = T;
