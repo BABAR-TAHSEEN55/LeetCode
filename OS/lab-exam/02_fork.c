@@ -4,7 +4,7 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
-int main(void) {
+int main() {
   pid_t pid = fork();
 
   if (pid < 0) {
@@ -22,6 +22,4 @@ int main(void) {
     printf("PID: %d\n", getpid());
     printf("Child PID: %d\n", pid);
   }
-
-  return 0;
 }
