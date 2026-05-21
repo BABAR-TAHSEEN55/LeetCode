@@ -4,10 +4,14 @@ class Animal {
     }
 }
 
+
+
 class Dog extends Animal {
+
     void bark() {
         System.out.println("Dog barks.");
     }
+
 }
 
 class Puppy extends Dog {
@@ -22,6 +26,7 @@ public class Set2A_InheritanceDemo {
         Dog dog = new Dog();
         dog.eat();
         dog.bark();
+
 
         System.out.println();
         System.out.println("Multi Level Inheritance:");
