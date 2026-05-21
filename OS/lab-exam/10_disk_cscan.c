@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void) {
+int main() {
   int n, i, j, head, initial_head, disk_size, direction, temp, total_seek = 0;
   int request[50];
 

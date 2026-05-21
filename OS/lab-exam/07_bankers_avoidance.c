@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(void) {
+int main() {
   int n, m, i, j, k;
   int allocation[10][10], maximum[10][10], need[10][10], available[10];
   int finish[10] = {0}, safe_sequence[10], count = 0;

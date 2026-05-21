@@ -1,7 +1,7 @@
 #include <limits.h>
 #include <stdio.h>
 
-int main(void) {
+int main() {
   int n, frames_count, i, j, faults = 0, hit, replace_index;
   int reference[50], frames[10], last_used[10];
 

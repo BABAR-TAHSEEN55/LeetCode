@@ -5,7 +5,7 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
-int main(void) {
+int main() {
   int fd[2];
   pid_t pid;
   char message[] = "Message sent through pipe";

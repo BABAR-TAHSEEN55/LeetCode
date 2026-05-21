@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(void) {
+int main() {
   int n, m, i, j, k, process;
   int allocation[10][10], maximum[10][10], need[10][10], available[10];
   int request[10], work[10], finish[10], safe_sequence[10], count = 0;

@@ -1,7 +1,7 @@
 #include <limits.h>
 #include <stdio.h>
 
-int main(void) {
+int main() {
   int n, i, time = 0, completed = 0, index;
   int pid[20], at[20], bt[20], pr[20], ct[20], tat[20], wt[20], done[20] = {0};
   float avg_tat = 0.0f, avg_wt = 0.0f;

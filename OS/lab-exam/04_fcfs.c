@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(void) {
+int main() {
   int n, i, j, time = 0, temp;
   int pid[20], at[20], bt[20], ct[20], tat[20], wt[20];
   float avg_tat = 0.0f, avg_wt = 0.0f;

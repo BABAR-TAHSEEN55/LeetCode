@@ -32,7 +32,7 @@ void *philosopher(void *arg) {
   return NULL;
 }
 
-int main(void) {
+int main() {
   int i;
   pthread_t thread[PHILOSOPHERS];
 

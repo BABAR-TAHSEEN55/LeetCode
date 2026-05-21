@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(void) {
+int main() {
   int n, frames_count, i, j, pointer = 0, faults = 0, hit;
   int reference[50], frames[10];
 

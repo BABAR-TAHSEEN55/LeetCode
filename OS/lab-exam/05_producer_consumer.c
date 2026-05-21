@@ -51,7 +51,7 @@ void *consumer(void *arg) {
   return NULL;
 }
 
-int main(void) {
+int main() {
   pthread_t producer_thread, consumer_thread;
 
   sem_init(&empty_slots, 0, BUFFER_SIZE);

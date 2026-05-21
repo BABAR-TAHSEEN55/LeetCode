@@ -7,7 +7,7 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
-int main(void) {
+int main() {
   int shmid = shmget(IPC_PRIVATE, 128, IPC_CREAT | 0600);
   pid_t pid;
   char *shared_memory;
