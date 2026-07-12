@@ -1,6 +1,16 @@
 import matplotlib.pyplot as plt
-from sklearn.cluster import KMeans
+from sklearn.cluster import AgglomerativeClustering, KMeans
 from sklearn.datasets import load_iris
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import (
+    accuracy_score,
+    confusion_matrix,
+    precision_score,
+    recall_score,
+)
+from sklearn.model_selection import cross_validate, train_test_split
+from sklearn.naive_bayes import GaussianNB
+from sklearn.preprocessing import StandardScaler
 
 
 def KKK():
@@ -24,8 +34,60 @@ def KKK():
     plt.show()
 
 
+def Agglomerative():
+    X = load_iris.data[:, :2]
+    model = AgglomerativeClustering(n_clusters=3)
+    labels = model.fit_predict(X)
+    plt.scatter(X[:, 0], X[:, 1], c=labels)
+    plt.title("Agglomerative")
+    plt.show()
+
+
+# Revise
+def Rain():
+    X = load_iris().data
+    y = load_iris().target
+    scaler = StandardScaler()
+    scaled_x = scaler.fit_transform(X)
+
+    model = RandomForestClassifier(n_estimators=3)
+    x_train, x_test, y_train, y_test = train_test_split(
+        scaled_x, y, test_size=0.25, random_state=42, stratify=y
+    )
+    model.fit(x_train, y_train)
+    y_pred = model.predict(x_test)
+    accuracy = accuracy_score(y_test, y_pred)
+    scores = cross_validate(scaled_x, y, cv=5)
+    print(scores)
+    print(accuracy)
+
+
 def sain():
-    KKK()
+    Rain()
+
+
+def ClassShit():
+    iris = load_iris()
+    X = iris.data
+    y = iris.target
+    scaler = StandardScaler()
+    scaled_x = scaler.fit_transform(X)
+
+    x_train, x_test, y_train, y_test = train_test_split(
+        scaled_x, y, test_size=0.25, stratify=y, random_state=42
+    )
+    models = {
+        "RandomForest": RandomForestClassifier(n_estimators=3),
+        "Naive Bayes": GaussianNB(),
+    }
+    for name, model in models.items():
+        model.fit(x_train, y_train)
+        y_pred = model.predict(x_test)
+        tp, fn, tn, fp = confusion_matrix(y_test, y_pred).ravel()
+        recall = recall_score(y_test, y_pred)
+        precision = precision_score(y_test, y_pred)
+        tpr = tp / (tp + fp)
+        fpr = fp / (fp + tn)
 
 
 if __name__ == "__main__":
