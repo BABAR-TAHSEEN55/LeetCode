@@ -12,7 +12,7 @@ def demonstrate_hierarchical_clustering():
     # Use all four flower measurements for clustering
     X = iris.data
 
-    # Actual flower types, used only for the first comparison graph
+   # Actual flower types, used only for the first comparison graph
     actual_labels = iris.target
 
     # ---------------------------------------------------

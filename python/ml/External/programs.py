@@ -11,10 +11,8 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
 
-# =====================================================
 # Question 1(A)
 # Linear Regression
-# =====================================================
 
 
 def question_1a():
@@ -34,10 +32,8 @@ def question_1a():
     print("Prediction for x = 6 :", prediction[0])
 
 
-# =====================================================
 # Question 1(B)
 # NumPy Broadcasting
-# =====================================================
 
 
 def question_1b():
@@ -55,10 +51,8 @@ def question_1b():
     print(matrix + row)
 
 
-# =====================================================
 # Question 2(A)
 # Logistic Regression
-# =====================================================
 
 
 def question_2a():
@@ -83,10 +77,8 @@ def question_2a():
     print("Accuracy :", accuracy)
 
 
-# =====================================================
 # Question 2(B)
 # NumPy Arithmetic & Matrix Operations
-# =====================================================
 
 
 def question_2b():
@@ -123,10 +115,8 @@ def question_2b():
     print(np.dot(A, B.T))
 
 
-# =====================================================
 # Question 3(A)
 # Decision Tree
-# =====================================================
 
 
 def question_3a():
@@ -151,10 +141,8 @@ def question_3a():
     print("Accuracy :", accuracy)
 
 
-# =====================================================
 # Question 3(B)
 # Pandas Line Plot & Bar Plot
-# =====================================================
 
 
 def question_3b():
@@ -176,10 +164,8 @@ def question_3b():
     plt.show()
 
 
-# =====================================================
 # Question 4(A)
 # Naive Bayes
-# =====================================================
 
 
 def question_4a():
@@ -204,10 +190,8 @@ def question_4a():
     print("Accuracy :", accuracy)
 
 
-# =====================================================
 # Question 4(B)
 # Pandas Series & DataFrame
-# =====================================================
 
 
 def question_4b():
@@ -225,10 +209,8 @@ def question_4b():
     print(df)
 
 
-# =====================================================
 # Question 5(A)
 # K Nearest Neighbours
-# =====================================================
 
 
 def question_5a():
@@ -253,10 +235,8 @@ def question_5a():
     print("Accuracy :", accuracy)
 
 
-# =====================================================
 # Question 5(B)
 # Solve Linear Equations using SciPy
-# =====================================================
 
 
 def question_5b():
@@ -273,10 +253,8 @@ def question_5b():
     print("y =", solution[1])
 
 
-# =====================================================
 # Question 6(A)
 # Support Vector Machine
-# =====================================================
 
 
 def question_6a():
@@ -301,10 +279,8 @@ def question_6a():
     print("Accuracy :", accuracy)
 
 
-# =====================================================
 # Question 6(B)
 # Determinant & Inverse using SciPy
-# =====================================================
 
 
 def question_6b():
@@ -370,10 +346,8 @@ from sklearn.model_selection import (
 from sklearn.naive_bayes import GaussianNB
 from sklearn.preprocessing import StandardScaler
 
-# =====================================================
 # Question 7(A)
 # K-Means Clustering
-# =====================================================
 
 
 def question_7a():
@@ -399,10 +373,8 @@ def question_7a():
     plt.show()
 
 
-# =====================================================
 # Question 7(B)
 # Structured Array
-# =====================================================
 
 
 def question_7b():
@@ -425,10 +397,8 @@ def question_7b():
     print(students)
 
 
-# =====================================================
 # Question 8(A)
 # Agglomerative Clustering
-# =====================================================
 
 
 def question_8a():
@@ -448,10 +418,9 @@ def question_8a():
     plt.show()
 
 
-# =====================================================
+
 # Question 8(B)
 # Determinant of Matrix
-# =====================================================
 
 
 def question_8b():
@@ -467,10 +436,8 @@ def question_8b():
     print(determinant)
 
 
-# =====================================================
 # Question 9(A)
 # Random Forest
-# =====================================================
 
 
 def question_9a():
@@ -508,10 +475,8 @@ def question_9a():
     print("Mean :", scores.mean())
 
 
-# =====================================================
 # Question 9(B)
 # NumPy Indexing & Slicing
-# =====================================================
 
 
 def question_9b():
@@ -537,10 +502,8 @@ def question_9b():
     print(arr[:2, :2])
 
 
-# =====================================================
 # Question 10(A)
 # AdaBoost
-# =====================================================
 
 
 def question_10a():
@@ -566,10 +529,8 @@ def question_10a():
     print("Accuracy :", accuracy)
 
 
-# =====================================================
 # Question 10(B)
 # Determinant & Inverse
-# =====================================================
 
 
 def question_10b():
@@ -591,10 +552,8 @@ def question_10b():
         print("Inverse does not exist.")
 
 
-# =====================================================
 # Question 11(A)
 # Classification Evaluation
-# =====================================================
 
 
 def question_11a():
@@ -648,10 +607,8 @@ def question_11a():
         print("FPR :", fpr)
 
 
-# =====================================================
 # Question 11(B)
 # NumPy Arithmetic
-# =====================================================
 
 
 def question_11b():
@@ -669,10 +626,8 @@ def question_11b():
     print(np.dot(A, B))
 
 
-# =====================================================
 # Question 12(A)
 # Text Classification
-# =====================================================
 
 
 def question_12a():
@@ -701,10 +656,8 @@ def question_12a():
     print(prediction)
 
 
-# =====================================================
 # Question 12(B)
 # Determinant
-# =====================================================
 
 
 def question_12b():
@@ -714,10 +667,8 @@ def question_12b():
     print(np.linalg.det(matrix))
 
 
-# =====================================================
 # Question 13(A)
 # Handwritten Digit Classification
-# =====================================================
 
 
 def question_13a():
@@ -742,10 +693,8 @@ def question_13a():
     print("Accuracy :", accuracy_score(y_test, y_pred))
 
 
-# =====================================================
 # Question 13(B)
 # Solve Linear Equation
-# =====================================================
 
 
 def question_13b():
@@ -763,9 +712,7 @@ def question_13b():
     print("y =", solution[1])
 
 
-# =====================================================
 # Uncomment any function to test
-# =====================================================
 
 # question_7a()
 # question_7b()
@@ -822,16 +769,16 @@ def question_13b():
 #     n_estimators=50,
 #     random_state=42
 # )
-max_iter  # Maximum training iterations
+# max_iter  # Maximum training iterations
 
-n_neighbors  # Number of nearest neighbours (KNN)
+# n_neighbors  # Number of nearest neighbours (KNN)
 
-kernel  # Type of SVM kernel ("linear", "rbf", etc.)
+# kernel  # Type of SVM kernel ("linear", "rbf", etc.)
 
-n_clusters  # Number of clusters (KMeans/Agglomerative)
+# n_clusters  # Number of clusters (KMeans/Agglomerative)
 
-n_estimators  # Number of trees/weak learners (Random Forest/AdaBoost)
+# n_estimators  # Number of trees/weak learners (Random Forest/AdaBoost)
 
-random_state  # Makes results reproducible
+# random_state  # Makes results reproducible
 
-n_init  # Number of KMeans initializations; best one is chosen
+# n_init  # Number of KMeans initializations; best one is chosen
