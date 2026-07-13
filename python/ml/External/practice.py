@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 from sklearn.cluster import AgglomerativeClustering, KMeans
 from sklearn.datasets import load_iris
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics import (
     accuracy_score,
     confusion_matrix,
@@ -90,5 +91,45 @@ def ClassShit():
         fpr = fp / (fp + tn)
 
 
+def pra():
+    docments = [
+        "I love Programmin",
+        "I hate bugs",
+        "Debugging is fun",
+        "Python is Amazing",
+    ]
+    labels = ["Postive", "Negative", "Postive", "Negative"]
+
+    vectorizer = CountVectorizer()
+    X = vectorizer.fit_transform(docments)
+
+    model = GaussianNB()
+    model.fit(X.toarray(), labels)
+    test = vectorizer.transform(docments[0])
+
+    model.predict(test.toarray())
+
+
 if __name__ == "__main__":
     sain()
+
+
+def Phir():
+    documents = [
+        "I love programming",
+        "I hate bugs",
+        "I love debugging",
+        "Pythong is Amazing",
+    ]
+    labels = ["Postive", "Negative", "Postive", "Negative"]
+
+    vectorize = CountVectorizer()
+
+    X = vectorize.fit_transform(documents)
+
+    model = GaussianNB()
+
+    model.fit(X.toarray(), label)
+
+    test = vectorize.transform(document[0])
+    model.predict(test.toarray())

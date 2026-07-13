@@ -418,7 +418,6 @@ def question_8a():
     plt.show()
 
 
-
 # Question 8(B)
 # Determinant of Matrix
 
@@ -782,3 +781,109 @@ def question_13b():
 # random_state  # Makes results reproducible
 
 # n_init  # Number of KMeans initializations; best one is chosen
+
+
+# plt.gray()
+# plt.plot(dataset.images[1730])
+# plt.show()
+
+# # Import required libraries
+# import tensorflow as tf
+# import matplotlib.pyplot as plt
+
+# # -----------------------------
+# # STEP 1: Define a 3x3 edge detection kernel
+# # -----------------------------
+# kernel = tf.constant([
+#     [-1, -1, -1],
+#     [-1,  8, -1],
+#     [-1, -1, -1]
+# ])
+
+# # -----------------------------
+# # STEP 2: Load the image
+# # -----------------------------
+# image = tf.io.read_file("AI.jpg")                # Read image from file
+# image = tf.io.decode_jpeg(image, channels=1)     # Convert to grayscale (1 channel)
+# image = tf.image.resize(image, [500, 500])       # Resize to 500x500 pixels
+
+# # -----------------------------
+# # STEP 3: Display original image
+# # -----------------------------
+# plt.figure(figsize=(5, 5))
+# plt.imshow(tf.squeeze(image), cmap="gray")       # Remove extra dimension for plotting
+# plt.title("Original Image")
+# plt.axis("off")
+# plt.show()
+
+# # -----------------------------
+# # STEP 4: Prepare image for CNN
+# # -----------------------------
+# image = tf.image.convert_image_dtype(image, tf.float32)  # Convert pixel values to float (0-1)
+
+# # Add batch dimension
+# # Shape changes:
+# # (500, 500, 1) -> (1, 500, 500, 1)
+# image = tf.expand_dims(image, axis=0)
+
+# # -----------------------------
+# # STEP 5: Prepare kernel
+# # -----------------------------
+# # CNN expects kernel shape:
+# # (height, width, input_channels, output_channels)
+# kernel = tf.reshape(kernel, [3, 3, 1, 1])
+# kernel = tf.cast(kernel, tf.float32)
+
+# # -----------------------------
+# # STEP 6: Apply Convolution
+# # -----------------------------
+# conv_image = tf.nn.conv2d(
+#     input=image,
+#     filters=kernel,
+#     strides=1,
+#     padding="SAME"
+# )
+
+# # -----------------------------
+# # STEP 7: Apply ReLU Activation
+# # -----------------------------
+# relu_image = tf.nn.relu(conv_image)
+
+# # -----------------------------
+# # STEP 8: Apply Max Pooling
+# # -----------------------------
+# pool_image = tf.nn.pool(
+#     input=relu_image,
+#     window_shape=(2, 2),      # 2x2 pooling window
+#     pooling_type="MAX",        # Max Pooling
+#     strides=(2, 2),            # Move window by 2 pixels
+#     padding="SAME"
+# )
+
+# # -----------------------------
+# # STEP 9: Display Results
+# # -----------------------------
+# plt.figure(figsize=(15, 5))
+
+# # Convolution Output
+# plt.subplot(1, 3, 1)
+# plt.imshow(tf.squeeze(conv_image))
+# plt.title("Convolution")
+# plt.axis("off")
+
+# # ReLU Output
+# plt.subplot(1, 3, 2)
+# plt.imshow(tf.squeeze(relu_image))
+# plt.title("ReLU Activation")
+# plt.axis("off")
+
+# # Max Pooling Output
+# plt.subplot(1, 3, 3)
+# plt.imshow(tf.squeeze(pool_image))
+# plt.title("Max Pooling")
+# plt.axis("off")
+
+# plt.show()
+
+# X = df.drop("Outcome", axis=1).values
+# y = df["Outcome"].values
